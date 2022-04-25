@@ -1,9 +1,8 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=7709229&assignment_repo_type=AssignmentRepo)
-STM8 startovací toolchain
-==============================
+STM8S Dero-board
+====================
 
 * Toto je Startovací strom zdrojových kódů pro výuku mikroprocesorové techniky s kitem
-  [NUCLEO-8S208RB](https://www.st.com/en/evaluation-tools/nucleo-8s208rb.html).
+  [STM8S Dero-board](https://gitlab.com/wykys/stm8s-dero-board) s STM8S103.
 * Strom je určen pro překladač [SDCC](http://sdcc.sourceforge.net/) nebo 
   [SDCC-gas](https://github.com/XaviDCR92/sdcc-gas).
 * Standardní knihovnu pro práci s periferiemi 
@@ -12,21 +11,12 @@ STM8 startovací toolchain
   [patch](https://github.com/gicking/STM8-SPL_SDCC_patch).
 * Konkurence a inspirace: <https://gitlab.com/wykys/stm8-tools>
 
-Tři Makefile
+Dva Makefile
 ---------------
 
-K dispozici jsou celkem tři Makefile v adresáři `.make`. Na začátku si musíte
-jeden z nich vybrat:
+K dispozici jsou celkem dva Makefile v adresáři `.make`. 
+Můžete mezi nimi přepínat:
 
-```bash
-make sdcc       # nebo
-make sdccrm     # nebo
-make sdcc-gas   # nebo
-```
-
-Potom můžete mezi nimi přepínat:
-
-    make switch-sdcc
     make switch-sdccrm
     make switch-sdcc-gas
 

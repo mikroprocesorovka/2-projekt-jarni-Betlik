@@ -21,6 +21,7 @@
 -x _UART1_TX_IRQHandler
 -x _UART3_RX_IRQHandler
 -x _UART3_TX_IRQHandler
+-x _ADC1_IRQHandler
 -x _ADC2_IRQHandler
 -x _I2C_IRQHandler
 -x _TIM1_CAP_COM_IRQHandler
@@ -28,3 +29,7 @@
 -x _TIM3_CAP_COM_IRQHandler
 -x _TIM4_TimeBaseInit
 -x _TIM4_UPD_OVF_IRQHandler
+-x _ADC1_GetConversionValue
+-x _lcd_busy_wait
+
+

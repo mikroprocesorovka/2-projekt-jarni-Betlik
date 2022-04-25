@@ -1,5 +1,3 @@
-MAKEFLAGS := --jobs=$(shell nproc)
-MAKEFLAGS += --output-sync=target
 #######
 # makefile for STM8S_StdPeriph_Lib and SDCC compiler
 #
@@ -15,15 +13,10 @@ MAKEFLAGS += --output-sync=target
 #######
 
 # STM8 device (default is STM8 discovery board)
-#DEVICE=STM8S103
-#DEVICE=STM8S105
-DEVICE=STM8S208
-#DEVICE_FLASH=stm8s103f3
-#DEVICE_FLASH=stm8s105k4
-DEVICE_FLASH=stm8s208rb
+DEVICE=STM8S103
+DEVICE_FLASH=stm8s103f3
 
-#STLINK=stlinkv2
-STLINK=stlinkv21
+STLINK=stlinkv2
 
 F_CPU=16000000
 
@@ -103,13 +96,9 @@ SPL_SOURCE  = $(notdir $(wildcard $(SPL_SRC_DIR)/*.c))
 SPL_OBJECTS := $(addprefix $(OUTPUT_DIR)/, $(SPL_SOURCE:.c=.o))
 
 SDCC_LIB_SRC_DIR = $(CC_ROOT)/share/sdcc/lib/src/
-#SDCC_LIB_SOURCE  = $(notdir $(wildcard $(CC_ROOT)/share/sdcc/lib/src/_mul*.c))
-#SDCC_LIB_SOURCE += $(notdir $(wildcard $(CC_ROOT)/share/sdcc/lib/src/_div*.c))
-#SDCC_LIB_SOURCE += $(notdir $(wildcard $(CC_ROOT)/share/sdcc/lib/src/_mod*.c))
-SDCC_LIB_SOURCE  = _mullong.c _mulint.c 
-SDCC_LIB_SOURCE += _divulong.c
-SDCC_LIB_SOURCE += _modsint.c _modulong.c
+SDCC_LIB_SOURCE = _mullong.c _divulong.c _mulint.c _modsint.c _modulong.c
 SDCC_LIB_SOURCE += printf_large.c _strlen.c sprintf.c vprintf.c puts.c
+#SDCC_LIB_SOURCE  = $(notdir $(wildcard $(CC_ROOT)/share/sdcc/lib/src/_*.c))
 SDCC_LIB_OBJECTS := $(addprefix $(OUTPUT_DIR)/, $(SDCC_LIB_SOURCE:.c=.o))
 
 # collect all include folders
@@ -177,8 +166,6 @@ openocd::
 debug: $(TARGET).elf
 	stm8-gdb --tui $^
 
-switch-sdcc::
-	$(LN) .make/Makefile-sdcc Makefile || $(CP) .make/Makefile-sdcc Makefile
 switch-sdccrm:
 	$(LN) .make/Makefile-sdccrm Makefile || $(CP) .make/Makefile-sdccrm Makefile
 

@@ -7,10 +7,10 @@
 
 // ---- USER EDIT SECTION ----
 // select GPIOs
-#define SCL_GPIO GPIOC
-#define SCL_PIN GPIO_PIN_6
-#define SDA_GPIO GPIOC
-#define SDA_PIN GPIO_PIN_7
+#define SCL_GPIO GPIOA
+#define SCL_PIN GPIO_PIN_2
+#define SDA_GPIO GPIOA
+#define SDA_PIN GPIO_PIN_1
 
 // coarse timing parameters (~us) 
 #define SWI2C_START_STOP_TIME 5
